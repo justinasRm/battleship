@@ -1,0 +1,35 @@
+body{
+    height: 100vh;
+    margin: 0;
+}
+.content-first-screen{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+.content-first-screen h1{
+    font-weight: bold;
+    font-size: 4rem;
+    color: rgb(27, 54, 0);
+    margin-bottom: 5px;
+}
+#start-game{
+    padding: 10px;
+    font-size: 2rem;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color:chartreuse;
+    box-shadow: 1px 1px 3px 1px gray;
+}
+#start-game:hover{
+    box-shadow: 1px 2px 5px 2px gray;
+    transform: scale(1.03);
+}
+#start-game:focus{
+
+    background-color: rgb(170, 255, 0);
+}

@@ -1,18 +1,11 @@
 
-function shipConstructor(startCords,endCords,hitPosition,sunk){
+function shipConstructor(Coordinates,hitPosition,sunk){
 
-    this.startCords=startCords;
-    this.endCords=endCords;
+    this.Coordinates=Coordinates;
     this.hitPosition=hitPosition;
     this.sunk=sunk;
 };
-shipConstructor.prototype.length=function(){
-if(this.startCords[0]-this.endCords[0]!=0){
-    return Math.abs(this.startCords[0]-this.endCords[0])+1;
-} else {
-    return Math.abs(this.startCords[1]-this.endCords[1])+1;
-}
-};
+
 shipConstructor.prototype.isSunk=function(){
 if(this.sunk==true){
     this.sunk=true;
@@ -22,21 +15,22 @@ if(this.sunk==true){
     return false;
 }
 };
-shipConstructor.prototype.isHit=function(coords){
-if((coords[0]<=this.startCords[0]&&coords[0]>=this.endCords[0])||(coords[0]<=this.endCords[0]&&coords[0]>=this.startCords[0])){
-    if((coords[1]<=this.startCords[1]&&coords[1]>=this.endCords[1])||(coords[1]<=this.endCords[1]&&coords[1]>=this.startCords[1])){
-        this.hitPosition.push(coords);
-        return coords;
-    }
-    else{
-        return 'not hit';
-    }
-} else {
-    return 'not hit';
-}
-};
+// HIT FUNCTIONALITY SHOULD BE FIXED
+
+// shipConstructor.prototype.isHit=function(coords){
+// if((coords[0]<=this.startCords[0]&&coords[0]>=this.endCords[0])||(coords[0]<=this.endCords[0]&&coords[0]>=this.startCords[0])){
+//     if((coords[1]<=this.startCords[1]&&coords[1]>=this.endCords[1])||(coords[1]<=this.endCords[1]&&coords[1]>=this.startCords[1])){
+//         this.hitPosition.push(coords);
+//         return coords;
+//     }
+//     else{
+//         return 'not hit';
+//     }
+// } else {
+//     return 'not hit';
+// }
+// };
 
 
-module.exports={
-    shipConstructor: shipConstructor
-}
+
+module.exports=shipConstructor;

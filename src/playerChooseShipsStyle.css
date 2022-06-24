@@ -1,0 +1,27 @@
+.content-player-choose-ships{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#board{
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr 1fr 1fr;
+    width: 813px;
+    height: 813px;
+    gap: 0;
+    margin: 0;
+    justify-content: left;
+}
+.box{
+    border: 1px solid black;
+    width: 133.5px;
+    height: 133.5px;
+}
+.left-panel{
+    border: 1px solid black;
+    width: 13%;
+    height: 811px;
+    background-color: gray;
+}

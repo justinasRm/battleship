@@ -1,0 +1,41 @@
+import "../src/firstScreenStyle.css";
+import "../src/playerChooseShipsStyle.css";
+import playerChooseShips from './PlayerChooseShips';
+
+
+const body=document.querySelector('body');
+const firstScreen=document.querySelector('.content-first-screen');
+const startBtn=document.querySelector('#start-game');
+const contentPlayerChooseShips=document.createElement('div');
+
+const board=document.createElement('div');
+board.setAttribute('id','board');
+
+for(let i=1;i<=6;i++){
+
+    for(let j=1;j<=6;j++){
+
+        const box=document.createElement('div');
+        box.setAttribute('data-coordinates',`[${i},${j}]`);
+        box.classList.add('box');
+        box.addEventListener('click',function(){
+            playerChooseShips(this.dataset.coordinates);
+        });
+            
+        
+        board.append(box);
+    }
+}
+
+
+contentPlayerChooseShips.classList.add('content-player-choose-ships');
+const leftPanel=document.createElement('div');
+leftPanel.classList.add('left-panel');
+
+contentPlayerChooseShips.append(board,leftPanel);
+
+
+startBtn.addEventListener('click',function(){
+    firstScreen.remove();
+    body.append(contentPlayerChooseShips);
+});
