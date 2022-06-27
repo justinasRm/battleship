@@ -7,9 +7,15 @@ let GameBoard=[];
     // test('ship goes up',()=>{
     //     expect(GameBoardArrayUpdate(GameBoard,[1,3],[1,1])).toEqual('Tiles inbetween');
     // })
-    test('ship goes right',()=>{
-        expect(GameBoardArrayUpdate(GameBoard,[1,1],[3,1])).toEqual('Tiles inbetween');
-    })
-    test('ship goes left',()=>{
-        expect(GameBoardArrayUpdate(GameBoard,[3,1],[1,1])).toBe('Tiles inbetween');
-    })
+    // test('ship goes right',()=>{
+    //     expect(GameBoardArrayUpdate(GameBoard,[1,1],[3,1])).toEqual('Tiles inbetween');
+    // })
+    // test('ship goes left',()=>{
+    //     expect(GameBoardArrayUpdate(GameBoard,[3,1],[1,1])).toBe('Tiles inbetween');
+    // })
+    // test('length 5',()=>{
+    //     expect(GameBoardArrayUpdate(GameBoard,[6,1],[1,1])).toBe('Tiles inbetween');
+    // })
+
+
+    // WORKS

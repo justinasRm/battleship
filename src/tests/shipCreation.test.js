@@ -1,4 +1,4 @@
-const shipCreation=require('./shipCreation.js');
+const shipCreation=require('../shipCreation.js');
 const shipConstructor=shipCreation.shipConstructor;
 
 describe('ship creation and length check',function(){
@@ -67,3 +67,5 @@ describe('hit mechanics',function(){
 //     expect(ship1.hitPosition[0]).toEqual([6,2]);
 // })
 })
+
+// WORKS
