@@ -1,5 +1,6 @@
 const shipConstructor=require('./shipCreation.js');
 const GameBoardArrayUpdate=require('./GameBoardArray.js');
+const UIplayerChooseShipsResponse=require('./UIplayerChooseShipsResponse.js');
 
 let tile=0; // 0 - startCoords, 1 - endCoords
 let startCords;
@@ -17,7 +18,7 @@ function playerChooseShips(coordinates,GameBoard,playerBoard){
             endCords=coords;
             playerBoard.push(new shipConstructor({startCords,endCords},[],false));
             GameBoardArrayUpdate(GameBoard,coords,coords);
-            tile==0;
+            UIplayerChooseShipsResponse(playerBoard);
             return;
         }
         if(playerBoard.length==2 || playerBoard.length==3){ // works if third or fourth ship is beeing created(both are 2 length)
@@ -25,7 +26,7 @@ function playerChooseShips(coordinates,GameBoard,playerBoard){
 
                 startCords=coords;
                 tile++;
-                console.log('oh');
+               
                 return;
 
             } else if(tile==1){ // check if it is the endCoords of the ship
@@ -34,6 +35,7 @@ function playerChooseShips(coordinates,GameBoard,playerBoard){
                 let endCords=coords;
                 playerBoard.push(new shipConstructor({startCords,endCords},[],false));
                 GameBoardArrayUpdate(GameBoard,startCords,endCords);
+                UIplayerChooseShipsResponse(playerBoard);
                 return;
             }
         }
@@ -51,6 +53,7 @@ function playerChooseShips(coordinates,GameBoard,playerBoard){
 
                 playerBoard.push(new shipConstructor({startCords,endCords},[],false));
                 GameBoardArrayUpdate(GameBoard,startCords,endCords);
+                UIplayerChooseShipsResponse(playerBoard);
                 return;
 
             }
@@ -67,6 +70,7 @@ function playerChooseShips(coordinates,GameBoard,playerBoard){
 
                 playerBoard.push(new shipConstructor({startCords,endCords},[],false));
                 GameBoardArrayUpdate(GameBoard,startCords,endCords);
+                UIplayerChooseShipsResponse(playerBoard);
                 return;
             }
         }
@@ -82,6 +86,7 @@ function playerChooseShips(coordinates,GameBoard,playerBoard){
 
                 playerBoard.push(new shipConstructor({startCords,endCords},[],false));
                 GameBoardArrayUpdate(GameBoard,startCords,endCords);
+                UIplayerChooseShipsResponse(playerBoard);
                 return;
 
             }

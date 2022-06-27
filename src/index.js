@@ -23,18 +23,13 @@ for(let i=1;i<=6;i++){
         box.setAttribute('data-coordinates',`${j}${i}`);
         box.classList.add('box');
         box.addEventListener('click',function(){
-            playerChooseShips(this.dataset.coordinates,GameBoard,playerBoard);
-            console.log(playerBoard);
-            console.log(GameBoard);
+            playerChooseShips(this.dataset.coordinates,GameBoard,playerBoard); // updates playerBoard, GameBoard arrays and the UI inside
         });
             
         
         board.append(box);
     }
 }
-playerBoard.forEach(ship=>{
-    GameBoardArrayUpdate(GameBoard,ship.coordinates.startCoords,ship.coordinates.endCoords);
-});
 
 
 
