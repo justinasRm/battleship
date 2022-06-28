@@ -1,7 +1,7 @@
 import "../src/firstScreenStyle.css";
 import "../src/playerChooseShipsStyle.css";
-import GameBoardArrayUpdate from "./GameBoardArray";
 import playerChooseShips from './PlayerChooseShips';
+import overlay from './Overlay.js';
 
 let GameBoard=[];
 let playerBoard=[];
@@ -24,8 +24,8 @@ for(let i=1;i<=6;i++){
         box.classList.add('box');
         box.addEventListener('click',function(){
             playerChooseShips(this.dataset.coordinates,GameBoard,playerBoard); // updates playerBoard, GameBoard arrays and the UI inside
+            overlay(playerBoard,body);
         });
-            
         
         board.append(box);
     }
@@ -33,14 +33,13 @@ for(let i=1;i<=6;i++){
 
 
 
-contentPlayerChooseShips.classList.add('content-player-choose-ships');
-const leftPanel=document.createElement('div');
-leftPanel.classList.add('left-panel');
 
-contentPlayerChooseShips.append(board,leftPanel);
+contentPlayerChooseShips.classList.add('content-player-choose-ships');
+contentPlayerChooseShips.append(board);
 
 
 startBtn.addEventListener('click',function(){
     firstScreen.remove();
     body.append(contentPlayerChooseShips);
+    overlay(playerBoard,body);
 });
