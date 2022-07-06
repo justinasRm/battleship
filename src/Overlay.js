@@ -1,6 +1,7 @@
 // these two variables help determine when to shop the explanation overlay.
 let newShip=true;
 let endTile=false;
+let overlayTime=0;
 
 function overlay(playerBoard,body){
     const overlay=document.createElement('div');
@@ -16,10 +17,10 @@ function overlay(playerBoard,body){
             }, 10);
             setTimeout(() => {
                 overlay.style.opacity='0';
-            }, 3000);
+            }, overlayTime);
             setTimeout(() => {
                 overlay.remove();
-            }, 4000);
+            }, overlayTime+500);
         }, 500);
     } else if(playerBoard.length==2){
         // Loads when first 2 ships of length 1 are placed - indicates that next 2 ships should be of length 2
@@ -35,10 +36,10 @@ function overlay(playerBoard,body){
             }, 10);
             setTimeout(() => {
                 overlay.style.opacity='0';
-            }, 3000);
+            }, overlayTime);
             setTimeout(() => {
                 overlay.remove();
-            }, 4000);
+            }, overlayTime+500);
         }, 500);
     }
     } else if(playerBoard.length==3){
@@ -57,10 +58,10 @@ function overlay(playerBoard,body){
                 }, 10);
                 setTimeout(() => {
                     overlay.style.opacity='0';
-                }, 3000);
+                }, overlayTime);
                 setTimeout(() => {
                     overlay.remove();
-                }, 4000);
+                }, overlayTime+500);
             }, 500);
         }
 
@@ -82,10 +83,10 @@ function overlay(playerBoard,body){
                 }, 10);
                 setTimeout(() => {
                     overlay.style.opacity='0';
-                }, 3000);
+                }, overlayTime);
                 setTimeout(() => {
                     overlay.remove();
-                }, 4000);
+                }, overlayTime+500);
             }, 500);
         }
     } else if(playerBoard.length==6){
@@ -105,10 +106,10 @@ function overlay(playerBoard,body){
                 }, 10);
                 setTimeout(() => {
                     overlay.style.opacity='0';
-                }, 3000);
+                }, overlayTime);
                 setTimeout(() => {
                     overlay.remove();
-                }, 4000);
+                }, overlayTime+500);
             }, 500);
         }
     }

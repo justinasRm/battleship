@@ -33,16 +33,17 @@
     left: 50%;
     top: 50%;
     transform:translate(-50%,-50%);
-    width: 75%;
-    height: 75%;
+    width: 814px;
+    height: 814px;
     background-color: rgb(255, 171, 171);
     opacity: 0;
-    transition: all 1s;
+    transition: all 0.5s;
     color: white;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     
     }
