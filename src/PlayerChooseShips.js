@@ -2,6 +2,8 @@ const shipConstructor=require('./shipCreation.js');
 const GameBoardArrayUpdate=require('./GameBoardArray.js');
 const UIplayerChooseShipsResponse=require('./UIplayerChooseShipsResponse.js');
 
+
+
 let tile=0; // 0 - startCoords, 1 - endCoords
 let startCords;
 function playerChooseShips(coordinates,GameBoard,playerBoard){

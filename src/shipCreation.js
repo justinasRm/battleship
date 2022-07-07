@@ -1,6 +1,5 @@
 
 function shipConstructor(Coordinates,hitPosition,sunk){
-
     this.Coordinates=Coordinates;
     this.hitPosition=hitPosition;
     this.sunk=sunk;

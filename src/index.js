@@ -28,8 +28,7 @@ for(let i=1;i<=6;i++){
         box.classList.add('box');
         box.addEventListener('click',function(){
             playerChooseShips(this.dataset.coordinates,GameBoard,playerBoard); // updates playerBoard, GameBoard arrays and the UI inside
-            overlay(playerBoard,body);
-            isShipGood=checkTheShip(playerBoard,isShipGood);
+            isShipGood=checkTheShip(playerBoard,isShipGood,GameBoard);
             if(isShipGood==false){
                 const error=document.createElement('div');
                 error.classList.add('ship-overlay');
@@ -40,10 +39,11 @@ for(let i=1;i<=6;i++){
                 setTimeout(() => {
                     window.location.reload();
                 }, 6000);
+
+                return;
                 // Start whole code all over again
             }
-            
-            console.log(isShipGood);
+            overlay(playerBoard,body);
             if(playerBoard.length==7){
                 startGame(); // NO FUNCTIONALITY YET
             }
