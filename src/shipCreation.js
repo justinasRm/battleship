@@ -4,31 +4,31 @@ function shipConstructor(Coordinates,hitPosition,sunk){
     this.hitPosition=hitPosition;
     this.sunk=sunk;
 };
+shipConstructor.prototype.AllCoordinates=function(){ // gets all the coordinates between start and end positions
+    const allCoordinates=[];
 
-shipConstructor.prototype.isSunk=function(){
-if(this.sunk==true){
-    this.sunk=true;
-    return true;
-} else {
-    this.sunk=false;
-    return false;
+    if(Math.abs(this.Coordinates.endCords[0]-this.Coordinates.startCords[0])==0){
+        // vertical ship
+        const length=Math.abs(this.Coordinates.endCords[1]-this.Coordinates.startCords[1])+1;
+        let longerCoordinate=0;
+        if(this.Coordinates.endCords[1]>this.Coordinates.startCords[1]){longerCoordinate=this.Coordinates.endCords[1];}
+        else{longerCoordinate=this.Coordinates.startCords[1]};
+        for(let i=0;i<length;i++){
+            allCoordinates.push([this.Coordinates.endCords[0],longerCoordinate-i]);
+        }
+    } else {
+        // horizontal ship
+
+        const length=Math.abs(this.Coordinates.endCords[0]-this.Coordinates.startCords[0])+1;
+        let longerCoordinate=0;
+        if(this.Coordinates.endCords[0]>this.Coordinates.startCords[0]){longerCoordinate=this.Coordinates.endCords[0];}
+        else{longerCoordinate=this.Coordinates.startCords[0]};
+        for(let i=0;i<length;i++){
+            allCoordinates.push([longerCoordinate-i,this.Coordinates.endCords[1]]);
+        }
+    }
+    return allCoordinates;
 }
-};
-// HIT FUNCTIONALITY SHOULD BE FIXED
-
-// shipConstructor.prototype.isHit=function(coords){
-// if((coords[0]<=this.startCords[0]&&coords[0]>=this.endCords[0])||(coords[0]<=this.endCords[0]&&coords[0]>=this.startCords[0])){
-//     if((coords[1]<=this.startCords[1]&&coords[1]>=this.endCords[1])||(coords[1]<=this.endCords[1]&&coords[1]>=this.startCords[1])){
-//         this.hitPosition.push(coords);
-//         return coords;
-//     }
-//     else{
-//         return 'not hit';
-//     }
-// } else {
-//     return 'not hit';
-// }
-// };
 
 
 

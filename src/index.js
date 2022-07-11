@@ -1,14 +1,16 @@
 import "../src/firstScreenStyle.css";
 import "../src/playerChooseShipsStyle.css";
+import "../src/Gameplay.css";
 import playerChooseShips from './PlayerChooseShips.js';
 import overlay from './Overlay.js';
 import startGame from './startGame.js'
 import checkTheShip from './checkTheShip.js'
-import { doc } from "prettier";
 
-let GameBoard=[];
-let playerBoard=[];
-let computerBoard=[];
+let GameBoard=[]; // this array will store players board
+let playerBoard=[]; // this array will store players ships
+
+let BotGameBoard=[]; // this array will store computers ships
+let BotPlayerBoard=[]; // this array will store computers board
 let isShipGood=true; // boolean will be set to false when a ship isn't the length its supposed to be or goes both vertically and horizontally
 
 const body=document.querySelector('body');
@@ -18,7 +20,6 @@ const contentPlayerChooseShips=document.createElement('div');
 
 const board=document.createElement('div');
 board.setAttribute('id','board');
-
 for(let i=1;i<=6;i++){
 
     for(let j=1;j<=6;j++){
@@ -28,8 +29,8 @@ for(let i=1;i<=6;i++){
         box.classList.add('box');
         box.addEventListener('click',function(){
             playerChooseShips(this.dataset.coordinates,GameBoard,playerBoard); // updates playerBoard, GameBoard arrays and the UI inside
-            isShipGood=checkTheShip(playerBoard,isShipGood,GameBoard);
-            if(isShipGood==false){
+            isShipGood=checkTheShip(playerBoard,isShipGood,GameBoard); // checks if ship placed by the player is placed by the rules
+            if(isShipGood==false){ // throws an error if it isn't, restarts the window
                 const error=document.createElement('div');
                 error.classList.add('ship-overlay');
                 error.style.opacity='1';
@@ -41,11 +42,11 @@ for(let i=1;i<=6;i++){
                 }, 6000);
 
                 return;
-                // Start whole code all over again
+                // Starts whole code all over again
             }
             overlay(playerBoard,body);
             if(playerBoard.length==7){
-                startGame(); // NO FUNCTIONALITY YET
+                BotGameBoard = startGame(BotGameBoard,BotPlayerBoard,body,GameBoard);
             }
         });
         

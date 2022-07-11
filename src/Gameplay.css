@@ -1,0 +1,31 @@
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#player-side{
+    width: 40.5%;
+    height: 72%;
+    background-color: rgb(255, 200, 212);
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr 1fr 1fr;
+}
+#computer-side{
+    width: 40.5%;
+    height: 72%;
+    background-color: rgb(193, 193, 255);
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr 1fr/1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.player-side-box{
+    border: solid 1px black;
+}
+.ship{
+    background-color: crimson;
+}
+.computer-side-box{
+    border: solid 1px black;
+}

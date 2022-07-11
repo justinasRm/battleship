@@ -66,7 +66,6 @@ if(playerBoard.length==7){
 // check if there are any 2 exact tiles in GameBoard array - it means ships are overlapping
 for(let i=0;i<GameBoard.length;i++){
     for(let j=0;j<GameBoard.length;j++){
-        console.log(GameBoard[j]);
         if(GameBoard[i][0]==GameBoard[j][0] && GameBoard[i][1]==GameBoard[j][1] && i!=j){
             return isShipGood=false;
         }
