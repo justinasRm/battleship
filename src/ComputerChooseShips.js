@@ -11,8 +11,8 @@ function RandomShipPosition(a,BotPlayerBoard){
 
         let endCords;
         //first i choose a random tile out of the 36 tiles
-        let randomTileX=Math.floor(Math.random()*5)+1;
-        let randomTileY=Math.floor(Math.random()*5)+1;
+        let randomTileX=Math.round(Math.random()*5+1);
+        let randomTileY=Math.round(Math.random()*5+1);
 
         startCords=[randomTileX,randomTileY];
 

@@ -1,8 +1,10 @@
 const ComputerAttack = require('./ComputerAttack');
 const shipConstructor = require('./shipCreation');
+const FinishGame = require("./FinishGame");
 
-function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard){
+let hitCoordinates=0;
 
+function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard,gameBoard,playerBoard,body){
     for(let x=0;x<BotPlayerBoard.length;x++){ // goes through all 18 PC side tiles
         if(BotPlayerBoard[x][0]==ClickedTileCoords[0] && BotPlayerBoard[x][1]==ClickedTileCoords[1]){
             // finds the tile from BotPlayerBoard that was clicked
@@ -13,14 +15,16 @@ function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard){
 
                 if(boxes[index].dataset.coordinates == ClickedTileCoords){
                     // find the passed in clicked tile coordinates from all of the tiles and change the color
-
+                    hitCoordinates++;
                 boxes[index].style.background='rgb(180, 236, 255)';
+               
+
                 FindHitShip(ClickedTileCoords,BotGameBoard);
                 };
             }
         }
     }
-    ComputerAttack();
+    ComputerAttack(gameBoard,playerBoard,body);
    
 }
 
@@ -49,6 +53,12 @@ function FindHitShip(ClickedTileCoords,BotGameBoard){
         });
         
     });
-
+    
+    if(hitCoordinates==18){
+        setTimeout(() => {
+            FinishGame('player',body);
+        }, 200);
+        
+    }
 }
 module.exports=CheckHit;

@@ -46,7 +46,7 @@ for(let i=1;i<=6;i++){
             }
             overlay(playerBoard,body);
             if(playerBoard.length==7){
-                BotGameBoard = startGame(BotGameBoard,BotPlayerBoard,body,GameBoard);
+                BotGameBoard = startGame(BotGameBoard,BotPlayerBoard,body,GameBoard,playerBoard);
             }
         });
         

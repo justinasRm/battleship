@@ -4,10 +4,8 @@ const ComputerChooseShips = require('./ComputerChooseShips');
 const CheckHit = require('./CheckHit');
 
 
-export default function startGame(BotGameBoard,BotPlayerBoard,body,GameBoard){
+export default function startGame(BotGameBoard,BotPlayerBoard,body,GameBoard,playerBoard){
     BotGameBoard = ComputerChooseShips(BotPlayerBoard);
-    console.log(BotGameBoard);
-    console.log(BotPlayerBoard);
     body.innerHTML='';
     const playerSide=document.createElement('div');
     playerSide.setAttribute('id','player-side');
@@ -30,9 +28,7 @@ export default function startGame(BotGameBoard,BotPlayerBoard,body,GameBoard){
             const ClickedTileCoords=computerBox.dataset.coordinates;
             computerBox.classList.add('computer-side-box');
             function Check(){
-                console.log(this);
-                CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard); // checks players hit ...
-                console.log(BotGameBoard);
+                CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard,GameBoard,playerBoard,body); // checks players hit ...
                 computerBox.removeEventListener('click',Check);
             }
             computerBox.addEventListener('click',Check)
