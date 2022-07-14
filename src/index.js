@@ -13,13 +13,16 @@ let BotGameBoard=[]; // this array will store computers ships
 let BotPlayerBoard=[]; // this array will store computers board
 let isShipGood=true; // boolean will be set to false when a ship isn't the length its supposed to be or goes both vertically and horizontally
 
-const body=document.querySelector('body');
+const body=document.querySelector('body'); // main body that will be manipulated when i need to load different screens
+
+// starting screen elements
 const firstScreen=document.querySelector('.content-first-screen');
 const startBtn=document.querySelector('#start-game');
 const contentPlayerChooseShips=document.createElement('div');
 
 const board=document.createElement('div');
 board.setAttribute('id','board');
+
 for(let i=1;i<=6;i++){
 
     for(let j=1;j<=6;j++){

@@ -3,8 +3,10 @@ const shipConstructor = require('./shipCreation');
 const FinishGame = require("./FinishGame");
 
 let hitCoordinates=0;
+let isHit=false;
 
 function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard,gameBoard,playerBoard,body){
+    isHit=false;
     for(let x=0;x<BotPlayerBoard.length;x++){ // goes through all 18 PC side tiles
         if(BotPlayerBoard[x][0]==ClickedTileCoords[0] && BotPlayerBoard[x][1]==ClickedTileCoords[1]){
             // finds the tile from BotPlayerBoard that was clicked
@@ -17,18 +19,22 @@ function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard,gameBoard,player
                     // find the passed in clicked tile coordinates from all of the tiles and change the color
                     hitCoordinates++;
                 boxes[index].style.background='rgb(180, 236, 255)';
-               
+                isHit=true;
 
-                FindHitShip(ClickedTileCoords,BotGameBoard);
-                };
+                FindHitShip(ClickedTileCoords,BotGameBoard,body);
+                }
             }
+        } else if(x==BotPlayerBoard.length-1 && isHit==false){
+            document.querySelectorAll(`[data-coordinates="${ClickedTileCoords[0]}${ClickedTileCoords[1]}"]`).forEach(element=>{
+                if(element.classList.contains('computer-side-box'))element.style.background='lightgray';
+            })
         }
     }
     ComputerAttack(gameBoard,playerBoard,body);
    
 }
 
-function FindHitShip(ClickedTileCoords,BotGameBoard){
+function FindHitShip(ClickedTileCoords,BotGameBoard,body){
     // finds the ship that was clicked and checks if all of the ship tiles have been clicked(if ship is sunk)
 
     const array=Object.entries(BotGameBoard); // 7 array elements

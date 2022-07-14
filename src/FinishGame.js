@@ -1,14 +1,23 @@
 
 function FinishGame(winner,body){
-    body.innerHTML='';
-    
-    if(winner=='computer'){
-        alert('COMPUTER HAS WON');
-    }
+    const popup=document.createElement('div');
+    popup.classList.add('gg-popup');
 
-    if(winner=='player'){
-        alert('PLAYER HAS WON');
-    }
+    popup.innerText='the '+winner+' has won this game!';
+
+    const playAgain=document.createElement('button');
+    playAgain.classList.add('play-again-btn');
+
+    playAgain.innerText='Another round?';
+    playAgain.addEventListener('click',function(){
+        window.location.reload();
+    })
+    popup.append(playAgain);
+    body.append(popup);
+    setTimeout(() => {
+        popup.style.opacity='0.7';
+    }, 10);
+
 
 }
 
