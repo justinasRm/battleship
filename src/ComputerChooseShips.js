@@ -16,6 +16,7 @@ function RandomShipPosition(a,BotPlayerBoard){
 
         startCords=[randomTileX,randomTileY];
 
+        
         for(let tile = 0; tile < BotPlayerBoard.length; tile++){
             if((BotPlayerBoard[tile][0]==startCords[0] && BotPlayerBoard[tile][1]==startCords[1])){
                 continue loop1;
