@@ -18,7 +18,7 @@ function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard,gameBoard,player
                 if(boxes[index].dataset.coordinates == ClickedTileCoords){
                     // find the passed in clicked tile coordinates from all of the tiles and change the color
                     hitCoordinates++;
-                boxes[index].style.background='rgb(180, 236, 255)';
+                boxes[index].style.background='cornflowerblue';
                 isHit=true;
 
                 FindHitShip(ClickedTileCoords,BotGameBoard,body);
@@ -26,7 +26,7 @@ function CheckHit(ClickedTileCoords,BotPlayerBoard,BotGameBoard,gameBoard,player
             }
         } else if(x==BotPlayerBoard.length-1 && isHit==false){
             document.querySelectorAll(`[data-coordinates="${ClickedTileCoords[0]}${ClickedTileCoords[1]}"]`).forEach(element=>{
-                if(element.classList.contains('computer-side-box'))element.style.background='lightgray';
+                if(element.classList.contains('computer-side-box'))element.style.background='dimgray';
             })
         }
     }
@@ -51,7 +51,7 @@ function FindHitShip(ClickedTileCoords,BotGameBoard,body){
                     document.querySelectorAll(`[data-coordinates="${element[0]}${element[1]}"]`).forEach(tile=>{
                         // 2 tiles with the same attribute - select the one on computer side
                         if(tile.classList.contains('computer-side-box')){
-                            tile.style.background='blue';
+                            tile.style.background='darkblue';
                         }
                     })
                 });

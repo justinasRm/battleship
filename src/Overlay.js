@@ -1,7 +1,8 @@
 // these two variables help determine when to shop the explanation overlay.
 let newShip=true;
 let endTile=false;
-let overlayTime=0;
+let overlayTime=2000;
+let overlayStartTime = 200;
 
 function overlay(playerBoard,body){
     const overlay=document.createElement('div');
@@ -21,7 +22,7 @@ function overlay(playerBoard,body){
             setTimeout(() => {
                 overlay.remove();
             }, overlayTime+500);
-        }, 500);
+        }, overlayStartTime);
     } else if(playerBoard.length==2){
         // Loads when first 2 ships of length 1 are placed - indicates that next 2 ships should be of length 2
         if(newShip!=false){
@@ -40,7 +41,7 @@ function overlay(playerBoard,body){
             setTimeout(() => {
                 overlay.remove();
             }, overlayTime+500);
-        }, 500);
+        }, overlayStartTime);
     }
     } else if(playerBoard.length==3){
         // Prepares for the next overlay(1 ship of length 3)
@@ -62,7 +63,7 @@ function overlay(playerBoard,body){
                 setTimeout(() => {
                     overlay.remove();
                 }, overlayTime+500);
-            }, 500);
+            }, overlayStartTime);
         }
 
     } else if(playerBoard.length==5){
@@ -87,7 +88,7 @@ function overlay(playerBoard,body){
                 setTimeout(() => {
                     overlay.remove();
                 }, overlayTime+500);
-            }, 500);
+            }, overlayStartTime);
         }
     } else if(playerBoard.length==6){
         // Loads when ship of length 4 is placed - indicates that next ship should be of length 5
@@ -110,7 +111,7 @@ function overlay(playerBoard,body){
                 setTimeout(() => {
                     overlay.remove();
                 }, overlayTime+500);
-            }, 500);
+            }, overlayStartTime);
         }
     }
 }

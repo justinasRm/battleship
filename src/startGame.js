@@ -1,5 +1,3 @@
-import { check } from 'prettier';
-
 const ComputerChooseShips = require('./ComputerChooseShips');
 const CheckHit = require('./CheckHit');
 
@@ -39,20 +37,21 @@ export default function startGame(BotGameBoard,BotPlayerBoard,body,GameBoard,pla
     };
 
     const overlay=document.createElement('div');
-    overlay.classList.add('ship-overlay');
-    setTimeout(() => { 
-        overlay.innerText='Start the game!';
+    overlay.classList.add('final-ship-overlay');
+
+    const overlayText=document.createElement('div');
+    overlayText.classList.add('final-ship-overlay-text');
+    overlayText.innerText='Start the game!';
+    overlay.append(overlayText);
+    setTimeout(() => {
         body.append(overlay);
         setTimeout(() => {
-            overlay.style.opacity='1';
-        }, 10);
-        setTimeout(() => {
             overlay.style.opacity='0';
-        }, 0);
+        }, 1500);
         setTimeout(() => {
             overlay.remove();
-        }, 600);
-    }, 500);
+        }, 2000);
+    }, 0);
 
 return BotGameBoard;
 }

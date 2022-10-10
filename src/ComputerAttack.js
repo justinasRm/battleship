@@ -34,7 +34,7 @@ function ComputerAttack(gameBoard,playerBoard,body){
 
     const tiles=document.querySelectorAll(`[data-coordinates="${randomCoord[0]}${randomCoord[1]}"`); // 2 tiles of the given coordinates - on player and computer sides
     tiles.forEach(element=>{
-        if(element.classList.contains('player-side-box'))element.style.background='gray'; // get the one on player side
+        if(element.classList.contains('player-side-box'))element.style.background='dimgray'; // get the one on player side
     })
     playerBoard.forEach(ship=>{
         ship.AllCoordinates().forEach(shipCoord=>{

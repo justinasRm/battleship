@@ -46,4 +46,31 @@
     align-items: center;
     text-align: center;
     
-    }
+}
+.final-ship-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.5s all;
+}
+.final-ship-overlay-text{
+    background-color: gray;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: beige;
+    font-weight: bold;
+    outline: 1px solid darkgray;
+}

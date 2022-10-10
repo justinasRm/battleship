@@ -1,9 +1,13 @@
 
 function FinishGame(winner,body){
+    if(document.querySelector('.gg-popup'))return;
     const popup=document.createElement('div');
     popup.classList.add('gg-popup');
+    
+    const popupText=document.createElement('div');
+    popupText.classList.add('gg-popup-text');
 
-    popup.innerText='the '+winner+' has won this game!';
+    popupText.innerText='the '+winner+' has won this game!';
 
     const playAgain=document.createElement('button');
     playAgain.classList.add('play-again-btn');
@@ -12,10 +16,11 @@ function FinishGame(winner,body){
     playAgain.addEventListener('click',function(){
         window.location.reload();
     })
-    popup.append(playAgain);
+    popupText.append(playAgain);
+    popup.append(popupText);
     body.append(popup);
     setTimeout(() => {
-        popup.style.opacity='0.7';
+        popup.style.opacity='1';
     }, 10);
 
 
