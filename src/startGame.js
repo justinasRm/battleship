@@ -9,7 +9,20 @@ export default function startGame(BotGameBoard,BotPlayerBoard,body,GameBoard,pla
     playerSide.setAttribute('id','player-side');
     const computerSide=document.createElement('div');
     computerSide.setAttribute('id','computer-side');
-    body.append(playerSide,computerSide);
+    const projectNameH3 = document.createElement('h3');
+    projectNameH3.innerText='Battleships';
+    const modifiedBody = document.querySelector('body');
+    modifiedBody.style.display='grid';
+    modifiedBody.style.gridTemplateRows='1fr 4fr 1fr';
+    modifiedBody.style.gridTemplateColumns='1fr 1fr';
+
+    // body{
+    //     height: 100vh;
+    //     display: grid;
+    //     grid-template-rows: 1fr 1fr;
+    //     grid-template-columns: 1fr 1fr 1fr;
+    // }
+    body.append(projectNameH3, playerSide,computerSide);
     for(let i=1;i<=6;i++){
         for(let j=1;j<=6;j++){
             const playerBox=document.createElement('div');// player side boxes
