@@ -66,6 +66,31 @@ contentPlayerChooseShips.append(board);
 
 startBtn.addEventListener('click',function(){
     firstScreen.remove();
+
+    const explanationOverlay = document.createElement('div');
+    explanationOverlay.classList.add('explanation-overlay');
+
+    const EOtextDiv = document.createElement('div');
+    EOtextDiv.classList.add('explanation-overlay-textDiv');
+    // EO - explanation overlay
+    const EOheader = document.createElement('p');
+    EOheader.innerText='Welcome to Battleships!';
+    const EOfirstText = document.createElement('p');
+    EOfirstText.innerText = 'This is a typical game of battleships - you try to shoot your enemies ships, your enemy tries to shoot yours.';
+    const EOsecondText = document.createElement('p');
+    EOsecondText.innerText = 'First of all, choose your board ships positions by following the overlays that popup.';
+    const EObutton = document.createElement('button');
+    EObutton.innerText='Continue';
+    EObutton.classList.add('explanation-overlay-button');
+
+    EOtextDiv.append(EOheader,EOfirstText,EOsecondText,EObutton);
+
+    EObutton.addEventListener('click',function(){
+        explanationOverlay.remove();
+        overlay(playerBoard,body);
+    })
+
+    explanationOverlay.append(EOtextDiv);
+    body.append(explanationOverlay);
     body.append(contentPlayerChooseShips);
-    overlay(playerBoard,body);
 });

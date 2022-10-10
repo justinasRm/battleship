@@ -36,22 +36,46 @@ export default function startGame(BotGameBoard,BotPlayerBoard,body,GameBoard,pla
         }
     };
 
-    const overlay=document.createElement('div');
-    overlay.classList.add('final-ship-overlay');
+    const explanationOverlay = document.createElement('div');
+    explanationOverlay.classList.add('explanation-overlay');
 
-    const overlayText=document.createElement('div');
-    overlayText.classList.add('final-ship-overlay-text');
-    overlayText.innerText='Start the game!';
-    overlay.append(overlayText);
-    setTimeout(() => {
-        body.append(overlay);
-        setTimeout(() => {
-            overlay.style.opacity='0';
-        }, 1500);
-        setTimeout(() => {
-            overlay.remove();
-        }, 2000);
-    }, 0);
+    const EOtextDiv = document.createElement('div');
+    EOtextDiv.classList.add('explanation-overlay-textDiv');
+    // EO - explanation overlay
+    const EOheader = document.createElement('p');
+    EOheader.innerText=`It's fight time!`;
+    const EOfirstText = document.createElement('p');
+    EOfirstText.innerText = 'Your board is on the left, your enemies is on the right.';
+    const EOsecondText = document.createElement('p');
+    EOsecondText.innerText = 'On your board all hit tiles are gray. On your enemies board, missed hits are gray, accurate hits are light blue and destroyed ships are dark blue.';
+    const EObutton = document.createElement('button');
+    EObutton.innerText='Fight!';
+    EObutton.classList.add('explanation-overlay-button');
+
+    EOtextDiv.append(EOheader,EOfirstText,EOsecondText,EObutton);
+    explanationOverlay.append(EOtextDiv);
+    body.append(explanationOverlay);
+    EObutton.addEventListener('click',function(){
+        explanationOverlay.remove();
+    })
+
+
+    // const overlay=document.createElement('div');
+    // overlay.classList.add('final-ship-overlay');
+
+    // const overlayText=document.createElement('div');
+    // overlayText.classList.add('final-ship-overlay-text');
+    // overlayText.innerText='Start the game!';
+    // overlay.append(overlayText);
+    // setTimeout(() => {
+    //     body.append(overlay);
+    //     setTimeout(() => {
+    //         overlay.style.opacity='0';
+    //     }, 1500);
+    //     setTimeout(() => {
+    //         overlay.remove();
+    //     }, 2000);
+    // }, 0);
 
 return BotGameBoard;
 }

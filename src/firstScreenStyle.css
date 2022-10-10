@@ -35,3 +35,40 @@ body{
 
     background-color: rgb(53, 53, 53);
 }
+.explanation-overlay{
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.explanation-overlay-textDiv{
+    width: 500px;
+    height: 400px;
+    background-color: #595959;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: beige;
+    text-align: center;
+}
+.explanation-overlay-button{
+    padding: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border: 1px solid black;
+    background-color:rgb(148, 148, 148);
+    box-shadow: 1px 1px 1px 1px gray;
+
+    transition: 0.5s all;
+}
+.explanation-overlay-button:hover{
+    box-shadow: 1px 2px 5px 2px gray;
+    transform: scale(1.03);
+}
